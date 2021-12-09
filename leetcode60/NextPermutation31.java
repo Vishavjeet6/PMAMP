@@ -1,7 +1,6 @@
 package leetcode60;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 public class NextPermutation31 {
 	
@@ -14,13 +13,15 @@ public class NextPermutation31 {
         	if(nums[i]<=nums[i-1]) {
         		continue;
         	}else {
-        		int f=i,s=i;
-        		for(int j=i+1; j<nums.length; j++) {
+        		int f=i-1,s=i-1;
+        		for(int j=i; j<nums.length; j++) {
         			if(nums[f] < nums[j]) {
         				s=f;
         				f=j;
+        				System.out.println("y "+nums[i]+ " " + nums[j] );
         			}else if(nums[s] < nums[j] && nums[f] != nums[j]) {
         				s=j;
+        				System.out.println("n "+nums[i]+ " " + nums[j]);
         			}
         		}
         		System.out.println(nums[s] + " " + nums[i]);
@@ -43,7 +44,7 @@ public class NextPermutation31 {
     }
 	
 	public static void main(String[] args) {
-		nextPermutation(new int [] {1,2,3});
+		nextPermutation(new int [] {1,3,2});
 	}
 
 }
